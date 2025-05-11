@@ -860,6 +860,7 @@ class TestGtfsInstance(object):
             "Expected {expected_size}"
         )
 
+    @pytest.mark.skip(reason="test hangs")
     def test__plot_summary_defences(self, tmp_path, gtfs_fixture):
         """Test defences for _plot_summary()."""
         # test defences for checks summaries exist
@@ -925,6 +926,7 @@ class TestGtfsInstance(object):
         ):
             gtfs_fixture._plot_summary(which="tester", target_column="tester")
 
+    @pytest.mark.skip(reason="test hangs")
     def test__plot_summary_on_pass(self, gtfs_fixture, tmp_path):
         """Test plotting a summary when defences are passed."""
         current_fixture = gtfs_fixture

@@ -216,45 +216,45 @@ class _IdHandler(osmium.SimpleHandler):
         self.relations_ids = list()
         self.area_ids = list()
 
-    def node(self, n: osmium.Node) -> None:
+    def node(self, n: osmium.osm.Node) -> None:
         """Collate node IDs.
 
         Parameters
         ----------
-        n : osmium.Node
+        n : osmium.osm.Node
             A node feature.
 
         """
         self.node_ids.append(n.id)
 
-    def way(self, w: osmium.Way) -> None:
+    def way(self, w: osmium.osm.Way) -> None:
         """Collate way IDs.
 
         Parameters
         ----------
-        w : osmium.Way
+        w : osmium.osm.Way
             A way feature.
 
         """
         self.way_ids.append(w.id)
 
-    def relation(self, r: osmium.Relation) -> None:
+    def relation(self, r: osmium.osm.Relation) -> None:
         """Collate relation IDs.
 
         Parameters
         ----------
-        r : osmium.Relation
+        r : osmium.osm.Relation
             A relation feature.
 
         """
         self.relations_ids.append(r.id)
 
-    def area(self, a: osmium.Area) -> None:
+    def area(self, a: osmium.osm.Area) -> None:
         """Collate area IDs.
 
         Parameters
         ----------
-        a : osmium.Area
+        a : osmium.osm.Area
             An area feature (includes boundaries).
 
         """
@@ -293,12 +293,12 @@ class _TagHandler(osmium.SimpleHandler):
         self.relation_tags = dict()
         self.area_tags = dict()
 
-    def node(self, n: osmium.Node) -> None:
+    def node(self, n: osmium.osm.Node) -> None:
         """Collate node tags.
 
         Parameters
         ----------
-        n : osmium.Node
+        n : osmium.osm.Node
             A node feature.
 
         """
@@ -306,12 +306,12 @@ class _TagHandler(osmium.SimpleHandler):
         tagdict = _compile_tags(n)
         self.node_tags[n.id] = tagdict
 
-    def way(self, w: osmium.Way) -> None:
+    def way(self, w: osmium.osm.Way) -> None:
         """Collate way tags.
 
         Parameters
         ----------
-        w : osmium.Way
+        w : osmium.osm.Way
             A way feature.
 
         """
@@ -319,12 +319,12 @@ class _TagHandler(osmium.SimpleHandler):
         tagdict = _compile_tags(w)
         self.way_tags[w.id] = tagdict
 
-    def relation(self, r: osmium.Relation) -> None:
+    def relation(self, r: osmium.osm.Relation) -> None:
         """Collate relation tags.
 
         Parameters
         ----------
-        r : osmium.Relation
+        r : osmium.osm.Relation
             A relation feature.
 
         """
@@ -332,12 +332,12 @@ class _TagHandler(osmium.SimpleHandler):
         tagdict = _compile_tags(r)
         self.relation_tags[r.id] = tagdict
 
-    def area(self, a: osmium.Area) -> None:
+    def area(self, a: osmium.osm.Area) -> None:
         """Collate area tags.
 
         Parameters
         ----------
-        a : osmium.Area
+        a : osmium.osm.Area
             An area feature (includes boundaries).
 
         """
@@ -382,7 +382,7 @@ class _LocHandler(osmium.SimpleHandler):
 
         Parameters
         ----------
-        n : osmium.Node
+        n : osmium.osm.Node
             A node feature.
 
         """
@@ -396,7 +396,7 @@ class _LocHandler(osmium.SimpleHandler):
 
         Parameters
         ----------
-        w : osmium.Way
+        w : osmium.osm.Way
             A way feature.
 
         """
